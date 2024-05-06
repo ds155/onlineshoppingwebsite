@@ -1,0 +1,63 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs"
+    Inherits="Project.MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>Online Handmade Goods</title>
+    <link href="Styles/StyleSheet1.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div style="background-color: #EFE6EE">
+        <table>
+            <tr>
+                <td width="500px">
+                    <asp:Image ID="Image1" runat="server" Height="200px" Width="300px" ImageUrl="~/Images/Web_Logo.png" />
+                </td>
+                <td width="500px" align="center">
+                    <strong style="font-size: xx-large">Online Handmade Goods</strong>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="menu">
+        <table>
+            <tr>
+                <td width="1200px">
+                    <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" StaticSubMenuIndent="16px"
+                        Font-Bold="True" ForeColor="#ffffff" Font-Size="Larger">
+                        <Items>
+                            <asp:MenuItem NavigateUrl="~/HomePage.aspx" Text="Home" Value="Home"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/RegisterPage.aspx" Text="Register" Value="Register">
+                            </asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/Admin/LoginPageAdmin.aspx" Text="Admin" Value="Admin">
+                            </asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/CartProduct.aspx" Text="My Cart" Value="My Cart">
+                            </asp:MenuItem>
+                        </Items>
+                        <StaticMenuItemStyle HorizontalPadding="15" />
+                    </asp:Menu>
+                </td>
+                <td align="right" width="750px">
+                    <asp:Label ID="Label1" runat="server" Text='<%# Session["@uid"] %>' CssClass="label"></asp:Label>
+                    <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/Images/circle-user-round.png"
+                        OnClick="ImageButton1_Click" Height="45px" Width="45px" />
+                    &nbsp;<asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">Login</asp:LinkButton>
+                    &nbsp;
+                    <asp:Button ID="ButtonLogout" runat="server" CssClass="btnlogout" Text="Logout" OnClick="ButtonLogout_Click1" />
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    <div class="footer">
+    </div>
+    </form>
+</body>
+</html>
